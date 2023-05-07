@@ -9,7 +9,7 @@ public class Application {
     // Attributi
     String type;
     String title;
-    // creo un array di tipo MediaElement, è l'unico tipo che può contenere audio, image e video
+    // creo un array di tipo MediaElement in quanto è l'unico tipo che può contenere audio, image e video
     MediaElement[] elements = new MediaElement[5];
 
     int duration;
@@ -24,7 +24,7 @@ public class Application {
     while (i < 5) {
 
       // seleziono il tipo di elemento tra un gruppo specifico di valori
-      System.out.println("Seleziona il tipo di oggetto che vuoi istanziare scegliendo tra audio, image e video:");
+      System.out.println("Seleziona il tipo di oggetto che vuoi istanziare scegliendo tra audio, image e video: ");
       type = input.nextLine();
 
       switch (type) {
