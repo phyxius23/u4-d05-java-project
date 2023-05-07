@@ -4,23 +4,23 @@ import java.util.Arrays;
 
 public class Audio extends MediaElement {
 
-  // attributi
+  // Attributi
   private int duration;
   private int volume;
 
-  // costruttore
+  // Costruttore
   public Audio(String t, int d, int v) {
     super(t);
     setDuration(d);
     setVolume(v);
   }
 
-  // getter & setter
+  // Getters & Setters
   public void setDuration(int d) {
-    if (d >= 0) {
-      this.duration = d;
-    } else {
+    if (d < 0) {
       this.duration = 0;
+    } else {
+      this.duration = d;
     }
   }
 
@@ -29,10 +29,10 @@ public class Audio extends MediaElement {
   }
 
   public void setVolume(int v) {
-    if (v >= 0) {
-      this.volume = v;
-    } else {
+    if (v < 0) {
       this.volume = 0;
+    } else {
+      this.volume = v;
     }
   }
 
@@ -40,7 +40,7 @@ public class Audio extends MediaElement {
     return this.volume;
   }
 
-  // metodi
+  // Metodi
   public void volumeDown() {
     this.volume--;
   };

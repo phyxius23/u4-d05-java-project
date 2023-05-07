@@ -3,12 +3,12 @@ package app;
 public abstract class MediaElement {
   private String title;
 
-  // costruttore
+  // Costruttore
   public MediaElement(String t) {
     setTitle(t);
   }
 
-  // getter & setter
+  // Getters & Setters
   public void setTitle(String t) {
     if (t == "" || t == " ") {
       this.title = "Non è stato inserito alcun titolo.";

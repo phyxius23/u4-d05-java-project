@@ -2,7 +2,7 @@ package app;
 
 public interface Illuminable {
 
-  // metodi
+  // Metodi
   public void brightnessDown();
 
   public void brightnessUp();

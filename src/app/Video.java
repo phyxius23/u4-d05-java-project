@@ -4,21 +4,21 @@ import java.util.Arrays;
 
 public class Video extends Audio implements Illuminable {
 
-  // attributi
+  // Attributi
   private int brightness;
 
-  // costruttore
+  // Costruttore
   public Video(String t, int d, int v, int b) {
     super(t, d, v);
     setBrightness(b);
   }
 
-  // setter & getter
+  // Getters & Setters
   public void setBrightness(int b) {
-    if (b >= 0) {
-      this.brightness = b;
-    } else {
+    if (b < 0) {
       this.brightness = 0;
+    } else {
+      this.brightness = b;
     }
   }
 
@@ -26,7 +26,7 @@ public class Video extends Audio implements Illuminable {
     return this.brightness;
   }
 
-  // override dei metodi implementati da Illuminable
+  // Override dei metodi implementati da Illuminable
   @Override
   public void brightnessDown() {
     this.brightness--;
@@ -37,7 +37,7 @@ public class Video extends Audio implements Illuminable {
     this.brightness++;
   }
 
-  // override dei metodi ereditati da Audio
+  // Override dei metodi ereditati da Audio
   @Override
   public void play() {
     char[] exclamationPoint = new char[getVolume()];

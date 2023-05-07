@@ -4,21 +4,21 @@ import java.util.Arrays;
 
 public class Image extends MediaElement implements Illuminable {
 
-  // attributi
+  // Attributi
   private int brightness;
 
-  // costruttori
+  // Costruttore
   public Image(String t, int b) {
     super(t);
     setBrightness(b);
   }
 
-  // setter & getter
+  // Getters & Setters
   public void setBrightness(int b) {
-    if (b >= 0) {
-      this.brightness = b;
-    } else {
+    if (b < 0) {
       this.brightness = 0;
+    } else {
+      this.brightness = b;
     }
   }
 
@@ -26,7 +26,7 @@ public class Image extends MediaElement implements Illuminable {
     return this.brightness;
   }
 
-  // metodi
+  // Metodi
   public void show() {
     char[] exclamationPoint = new char[getBrightness()];
 
@@ -35,7 +35,7 @@ public class Image extends MediaElement implements Illuminable {
     System.out.println(getTitle() + "" + String.valueOf(exclamationPoint));
   }
 
-  // override dei metodi implementati da Illuminable
+  // Override dei metodi implementati da Illuminable
   @Override
   public void brightnessDown() {
     this.brightness--;
