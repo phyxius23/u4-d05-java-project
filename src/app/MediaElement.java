@@ -1,6 +1,9 @@
 package app;
 
 public abstract class MediaElement {
-  String titolo;
+  String title;
 
+  public MediaElement(String t) {
+    this.title = t;
+  }
 }
