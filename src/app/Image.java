@@ -5,26 +5,34 @@ import java.util.Arrays;
 public class Image extends MediaElement implements Illuminable {
 
   // attributi
-  int brightness;
+  private int brightness;
 
   // costruttori
   public Image(String t, int b) {
     super(t);
-    this.brightness = b;
+    setBrightness(b);
+  }
+
+  // setter & getter
+  public void setBrightness(int b) {
+    if (b >= 0) {
+      this.brightness = b;
+    } else {
+      this.brightness = 0;
+    }
+  }
+
+  public int getBrightness() {
+    return this.brightness;
   }
 
   // metodi
   public void show() {
-    char[] exclamationPoint = new char[brightness];
-    // creo un array di tipo char composto da un numero di elementi pari al valore
-    // del volume
+    char[] exclamationPoint = new char[getBrightness()];
 
-    // Arrays.fill(exclamationPoint, "!"); // se utilizzo i doppi apici non funziona
-    // perchè interpreta il punto esclamativo come una stringa
     Arrays.fill(exclamationPoint, '*');
 
-    System.out.println(this.title + "" + String.valueOf(exclamationPoint));
-
+    System.out.println(getTitle() + "" + String.valueOf(exclamationPoint));
   }
 
   // override dei metodi implementati da Illuminable

@@ -5,12 +5,25 @@ import java.util.Arrays;
 public class Video extends Audio implements Illuminable {
 
   // attributi
-  int brightness;
+  private int brightness;
 
-  // costruttori
+  // costruttore
   public Video(String t, int d, int v, int b) {
     super(t, d, v);
-    this.brightness = b;
+    setBrightness(b);
+  }
+
+  // setter & getter
+  public void setBrightness(int b) {
+    if (b >= 0) {
+      this.brightness = b;
+    } else {
+      this.brightness = 0;
+    }
+  }
+
+  public int getBrightness() {
+    return this.brightness;
   }
 
   // override dei metodi implementati da Illuminable
@@ -24,21 +37,17 @@ public class Video extends Audio implements Illuminable {
     this.brightness++;
   }
 
-  // override dei metodi implementati da Reproducible
+  // override dei metodi ereditati da Audio
   @Override
   public void play() {
-    char[] exclamationPoint = new char[volume];
-    char[] asterisk = new char[brightness];
-    // creo un array di tipo char composto da un numero di elementi pari al valore
-    // del volume
+    char[] exclamationPoint = new char[getVolume()];
+    char[] asterisk = new char[getBrightness()];
 
-    // Arrays.fill(exclamationPoint, "!"); // se utilizzo i doppi apici non funziona
-    // perchè interpreta il punto esclamativo come una stringa
     Arrays.fill(exclamationPoint, '!');
     Arrays.fill(asterisk, '*');
 
-    for (int i = 0; i < duration; i++) {
-      System.out.println(this.title + "" + String.valueOf(exclamationPoint) + String.valueOf(asterisk));
+    for (int i = 0; i < getDuration(); i++) {
+      System.out.println(getTitle() + "" + String.valueOf(exclamationPoint) + String.valueOf(asterisk));
     }
 
   }
